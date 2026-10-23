@@ -58,6 +58,56 @@ do
     if (numberImput == 2 || numberImput == 4)
     {
         //Exercise 2
+        System.Console.WriteLine("=== Exercise 2: The Dice Table ===");
+
+        //Varibles for Dice
+        int rollCount = 0;
+        int winCount = 0;
+        string playAgain;
+
+        //Do-While: The player came to roll before being asked about rolling and the body must have to ran once before the question can be asked
+        do
+        {
+            //Counts amount of rolls
+            rollCount++;
+
+            //Variables for the rolled dice and the sum of the 2 dice
+            int die1 = rng.Next(1, 7);
+            int die2 = rng.Next(1, 7);
+            int dieTotal = die1 + die2;
+
+            //When roll outputs snake eyes
+            if (die1 == 1 && die2 == 1)
+            {
+                System.Console.WriteLine($"Roll {rollCount}: {die1} and {die2}, total {dieTotal}. Snake eyes");
+            }
+
+            //When roll outputs doubles
+            else if (die1 == die2)
+            {
+                 System.Console.WriteLine($"Roll {rollCount}: {die1} and {die2}, total {dieTotal}. Doubles!");
+            }
+
+            //When roll outputs a winning number
+            else if(dieTotal == 7 || dieTotal == 11)
+            {
+                 System.Console.WriteLine($"Roll {rollCount}: {die1} and {die2}, total {dieTotal}. Winner!");
+                 winCount++;
+            }
+            
+            //When roll outputs a result not above
+            else if(dieTotal != 7 && dieTotal != 11)
+            {
+                 System.Console.WriteLine($"Roll {rollCount}: {die1} and {die2}, total {dieTotal}.");
+            }
+
+            //Ask for reroll
+            System.Console.WriteLine("Roll again? (y/n): ");
+            playAgain = Console.ReadLine();
+        }while(playAgain == "y");
+
+        //Total amount of rolls and the amount of times they won
+        System.Console.WriteLine($"You rolled {rollCount} times and won {winCount}.");
     }
 
     if (numberImput == 3 || numberImput == 4)
