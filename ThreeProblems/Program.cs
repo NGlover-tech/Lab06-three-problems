@@ -113,6 +113,51 @@ do
     if (numberImput == 3 || numberImput == 4)
     {
         // Exercise 3
+        System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+
+        //Declaring array
+        int[] scores = new int[5];
+
+        //User imputing data
+        for(int i = 0; i < scores.Length; i++)
+        {
+            System.Console.WriteLine($"Score {i + 1}: ");
+            scores[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        //variables needed for calculating
+        int total = 0;
+        int highest = 0;
+        int passingScores = 0;
+
+        //foreach: For adding, comparing, and counting, it counts every value and no position of the values for the entered scores
+        foreach(int scoreInfo in scores)
+        {
+            //Adds up all scores
+            total += scoreInfo;
+
+            //Gives the variable "highest" the greatest score from the inputed scores
+            if (scoreInfo > highest)
+            {
+                highest = scoreInfo;
+            }
+
+            //Counts how many scores that or greater or equal to 60 for which it counts as passing
+            if (scoreInfo >= 60)
+            {
+                passingScores++;
+            }
+        }
+
+        //Calculation for the average of the scores
+        double average = (double)total / scores.Length;
+
+        //Output of exercise 3
+        System.Console.WriteLine($"Scores entered: {scores.Length}");
+        System.Console.WriteLine($"Total: {total}");
+        System.Console.WriteLine($"Average: {average}");
+        System.Console.WriteLine($"Highest: {highest}");
+        System.Console.WriteLine($"Passing: {passingScores} of {scores.Length}");
     }
 
 }while (numberImput !=5);
