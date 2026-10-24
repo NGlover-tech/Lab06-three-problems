@@ -1,3 +1,12 @@
+/*
+* Name: Nicholas Glover
+* Course: CSCI 1250, Section 002
+* Assignment: Lab 06, Three Short Problems
+* Date: October 21, 2026
+* Description: A menu that keeps running until the user quits, offering three
+* independent exercises or all three at once. Each exercise
+* practices decisions and one of the four loops.
+*/
 
 int numberImput;
 Random rng = new Random(4000);
